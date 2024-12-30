@@ -1,0 +1,45 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css";
+
+:root{
+    scroll-behavior: auto;
+}
+
+html{
+    font-size: 100%;
+}
+
+body {
+    font-family: $font-primary;
+    @include fontsize(16px);
+    line-height: $line-height-100;
+    font-weight: $font-weight-400;
+    color: $color-black;
+}
+
+.button{
+    text-decoration: none;
+    // background-color: ;
+    text-align: center;
+    appearance: none;
+    color: $color-white;
+    font-family: $font-primary;
+    @include fontsize(16px);
+    font-weight: $font-weight-400;
+    line-height: $line-height-140;
+    width:fit-content;
+    height: 60px;
+    padding: 0 24px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease 0.3s;
+}
+
+.button-primary{
+    background-color: $color-secondary;
+
+    &:hover{
+        color: $color-primary;
+    }
+}

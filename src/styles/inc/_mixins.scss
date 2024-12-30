@@ -1,0 +1,64 @@
+@use "sass:math";
+
+@function calculateRem($size){
+    $remSize:math.div($size,16px);
+    @return #{$remSize}rem;
+}
+
+@mixin fontsize($size){
+    font-size: calculateRem($size);
+}
+
+@mixin widthheight($width,$height){
+    width: $width;
+    height: $height;
+}
+
+$breakpoints: (
+  mobile: 768px,
+  tablet: 992px,
+  laptop: 1240px,
+  desktop-lg: 1800px
+);
+
+@mixin breakpoint($breakpoint, $direction) {
+
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    
+    @if $direction == max {
+        @media (max-width: ($breakpoint-value - 1)) {
+            @content;
+        }
+    }
+}
+
+@mixin mobile {
+	@media all and (max-width: $mobile) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media all and (max-width: $screen-xl) {
+		@content;
+	}
+}
+
+@mixin screen1400 {
+	@media all and (max-width: $screen-2xl) {
+		@content;
+	}
+}
+
+@mixin screen1600 {
+	@media all and (max-width: $screen-3xl) {
+		@content;
+	}
+}
+
+@mixin screen1800 {
+	@media all and (max-width: $screen-4xl) {
+		@content;
+	}
+}
